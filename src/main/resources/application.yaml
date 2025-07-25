@@ -1,7 +1,17 @@
-server:
-  port: 8080
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres_db
+    username: postgres
+    password: password
 
-logging:
-  level:
-    org.springframework.orm.jpa: DEBUG
-    org.springframework.transaction: DEBUG
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  liquibase:
+    change-log: classpath:liquibase/changelog-master.yml
+server:
+  port: 8081

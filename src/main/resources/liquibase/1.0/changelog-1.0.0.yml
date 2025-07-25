@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create categories table
+      author: Vugar
+      changes:
+        - createTable:
+            tableName: categories
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
